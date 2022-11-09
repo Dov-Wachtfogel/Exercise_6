@@ -57,7 +57,7 @@ class S(BaseHTTPRequestHandler):
                 </html>'''.encode('utf-8'))
             else:
                 self._set_response()
-            self.wfile.write(f'''
+                self.wfile.write(f'''
 <html>
     <body>
         <h1> The {path[1:]} of {str(parms)[1:-1]} is {ans} </h1 >
