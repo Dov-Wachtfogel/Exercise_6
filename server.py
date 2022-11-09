@@ -38,11 +38,23 @@ class S(BaseHTTPRequestHandler):
 
         except:
             self._set_response(400)
+            self.wfile.write(f'''
+<html>
+    <body>
+        <h1> 400 error </h1 >
+    <body>
+</html>'''.encode('utf-8'))
         else:
             try:
                 ans = eval(f'{path[1:]}({parms})')
             except:
                 self._set_response(404)
+                self.wfile.write(f'''
+                <html>
+                    <body>
+                        <h1> 404 error </h1 >
+                    <body>
+                </html>'''.encode('utf-8'))
             else:
                 self._set_response()
             self.wfile.write(f'''
